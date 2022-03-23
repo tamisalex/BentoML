@@ -59,7 +59,7 @@ class ResourceQuota:
     mem: int = attr.field(converter=mem_converter, factory=_get_default_mem)
     # Example gpus value: "all", 2, "device=1,2"
     # Default to "None", returns all available GPU devices in current environment
-    gpus: t.List[str] = attr.field(converter=gpu_converter, default=None)
+    gpus: t.List[str] = attr.field(converter=gpu_converter, default=[0])
 
     @property
     def on_gpu(self) -> bool:
